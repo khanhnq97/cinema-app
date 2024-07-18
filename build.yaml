@@ -1,0 +1,11 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+      - openapi/**
+    builders:
+      swagger_dart_code_generator:
+        options:
+          input_folder: 'openapi/definitions'
+          output_folder: 'lib/gen/api'
+          separate_models: true

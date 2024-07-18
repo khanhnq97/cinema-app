@@ -1,0 +1,186 @@
+a. API cho phim:
+  - GET /movies: Lấy danh sách phim
+  - GET /movies/{id}: Lấy thông tin chi tiết phim
+  - POST /movies: Thêm phim mới
+  - PUT /movies/{id}: Cập nhật thông tin phim
+  - DELETE /movies/{id}: Xóa phim
+
+  class Movie {
+  int movieId;
+  String title;
+  String description;
+  int duration;
+  DateTime releaseDate;
+  String genre;
+  String director;
+  String cast;
+
+  Movie({
+  required this.movieId,
+  required this.title,
+  required this.description,
+  required this.duration,
+  required this.releaseDate,
+  required this.genre,
+  required this.director,
+  required this.cast,
+});
+}
+
+b. API cho suất chiếu:
+  - GET /showtimes: Lấy danh sách suất chiếu
+  - POST /showtimes: Thêm suất chiếu mới
+  - GET /showtimes/{id}: Lấy thông tin chi tiết suất chiếu
+  - PUT /showtimes/{id}: Cập nhật thông tin suất chiếu
+  - DELETE /showtimes/{id}: Xóa suất chiếu
+
+  class Showtime {
+    int showtimeId;
+    int movieId;
+    int theaterId;
+    DateTime startTime;
+    DateTime endTime;
+    double price;
+
+    Showtime({
+      required this.showtimeId,
+      required this.movieId,
+      required this.theaterId,
+      required this.startTime,
+      required this.endTime,
+      required this.price,
+    });
+  }
+
+
+
+c. API cho đặt vé:
+  - GET /bookings: Lấy danh sách đặt vé
+  - GET /bookings/{id}: Lấy thông tin chi tiết đặt vé
+  - POST /bookings: Tạo đặt vé mới
+  - PUT /bookings/{id}: Cập nhật thông tin đặt vé
+  - DELETE /bookings/{id}: Hủy đặt vé
+
+  class Booking {
+    int bookingId;
+    int customerId;
+    int showtimeId;
+    DateTime bookingDate;
+    double totalAmount;
+
+    Booking({
+      required this.bookingId,
+      required this.customerId,
+      required this.showtimeId,
+      required this.bookingDate,
+      required this.totalAmount,
+    });
+  }
+
+
+d. API cho khách hàng:
+  - GET /customers: Lấy danh sách khách hàng
+  - GET /customers/{id}: Lấy thông tin chi tiết khách hàng
+  - POST /customers: Đăng ký khách hàng mới
+  - PUT /customers/{id}: Cập nhật thông tin khách hàng
+  - DELETE /customers/{id}: Xóa tài khoản khách hàng
+
+  class Customer {
+    int customerId;
+    String name;
+    String email;
+    String phone;
+    String password;
+    String membershipStatus;
+
+    Customer({
+      required this.customerId,
+      required this.name,
+      required this.email,
+      required this.phone,
+      required this.password,
+      required this.membershipStatus,
+    });
+  }
+
+
+e. API cho nhân viên:
+  - GET /employees: Lấy danh sách nhân viên
+  - POST /employees: Thêm nhân viên mới
+  - GET /employees/{id}: Lấy thông tin chi tiết nhân viên
+  - PUT /employees/{id}: Cập nhật thông tin nhân viên
+  - DELETE /employees/{id}: Xóa nhân viên
+
+  class Employee {
+    int employeeId;
+    String name;
+    String email;
+    String phone;
+    String position;
+    String password;
+
+    Employee({
+      required this.employeeId,
+      required this.name,
+      required this.email,
+      required this.phone,
+      required this.position,
+      required this.password,
+    });
+  }
+
+
+f. API cho đồ ăn và đồ uống:
+  - GET /concessions: Lấy danh sách đồ ăn, đồ uống
+  - GET /concessions/{id}: Lấy thông tin chi tiết sản phẩm
+  - POST /concessions: Thêm sản phẩm mới
+  - PUT /concessions/{id}: Cập nhật thông tin sản phẩm
+  - DELETE /concessions/{id}: Xóa sản phẩm
+
+  class Concession {
+    int concessionId;
+    String name;
+    String description;
+    double price;
+    int stock;
+
+    Concession({
+      required this.concessionId,
+      required this.name,
+      required this.description,
+      required this.price,
+      required this.stock,
+    });
+  }
+
+
+g. API cho khuyến mãi:
+  - GET /promotions: Lấy danh sách khuyến mãi
+  - GET /promotions/{id}: Lấy thông tin chi tiết khuyến mãi
+  - POST /promotions: Thêm khuyến mãi mới
+  - PUT /promotions/{id}: Cập nhật thông tin khuyến mãi
+  - DELETE /promotions/{id}: Xóa khuyến mãi
+
+  class Promotion {
+    int promotionId;
+    String name;
+    String description;
+    double discountPercent;
+    DateTime startDate;
+    DateTime endDate;
+
+    Promotion({
+      required this.promotionId,
+      required this.name,
+      required this.description,
+      required this.discountPercent,
+      required this.startDate,
+      required this.endDate,
+    });
+  }
+
+
+h. API cho báo cáo và thống kê:
+  - GET /reports/revenue: Lấy báo cáo doanh thu
+  - GET /reports/attendance: Lấy báo cáo lượt xem phim
+  - GET /reports/popular-movies: Lấy danh sách phim phổ biến

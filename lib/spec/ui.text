@@ -1,0 +1,341 @@
+Tôi hiểu bạn muốn tôi tạo các file giao diện XD cho cả web và ứng dụng di động. Tuy nhiên, tôi không thể trực tiếp tạo hoặc chỉnh sửa các file XD. Thay vào đó, tôi có thể mô tả cấu trúc và các thành phần chính cho mỗi giao diện, để bạn có thể sử dụng làm hướng dẫn khi tạo các file XD của riêng mình.
+
+1. Giao diện web cho khách hàng:
+
+Trang chủ:
+- Header với logo, menu điều hướng (Phim đang chiếu, Phim sắp chiếu, Rạp chiếu, Khuyến mãi), nút đăng nhập/đăng ký
+- Slider hiển thị các phim nổi bật
+- Danh sách phim đang chiếu (dạng lưới)
+- Phần tìm kiếm nhanh (chọn phim, rạp, ngày)
+- Footer với thông tin liên hệ, links
+
+Trang chi tiết phim:
+- Poster phim, thông tin cơ bản (tên, thời lượng, thể loại, đạo diễn)
+- Trailer (nhúng video)
+- Mô tả phim
+- Lịch chiếu (chọn ngày, rạp)
+- Nút đặt vé
+- Đánh giá và bình luận của khách hàng
+
+Trang đặt vé:
+- Thông tin phim đã chọn
+- Chọn suất chiếu
+- Sơ đồ ghế ngồi
+- Chọn đồ ăn, nước uống (tùy chọn)
+- Tổng giá tiền
+- Nút thanh toán
+
+2. Giao diện web quản lý cho nhân viên và quản lý:
+
+Dashboard:
+- Sidebar với các mục quản lý (Phim, Suất chiếu, Đặt vé, Khách hàng, Nhân viên, Báo cáo)
+- Tổng quan doanh thu, số lượng vé bán, phim hot
+- Biểu đồ doanh thu theo thời gian
+
+Quản lý phim:
+- Danh sách phim (bảng)
+- Nút thêm phim mới
+- Tìm kiếm và lọc phim
+
+Quản lý suất chiếu:
+- Lịch chiếu theo ngày và rạp
+- Thêm/sửa/xóa suất chiếu
+
+Quản lý đặt vé:
+- Danh sách đặt vé
+- Chi tiết đặt vé
+- Xác nhận/hủy đặt vé
+
+Báo cáo:
+- Lựa chọn loại báo cáo (doanh thu, lượt xem, phim hot)
+- Lựa chọn khoảng thời gian
+- Hiển thị biểu đồ và bảng số liệu
+
+3. Giao diện ứng dụng di động cho khách hàng:
+
+Màn hình chính:
+- Bottom navigation (Trang chủ, Tìm kiếm, Đặt vé, Tài khoản)
+- Slider phim nổi bật
+- Danh sách phim đang chiếu (dạng lưới hoặc danh sách)
+
+Màn hình chi tiết phim:
+- Poster phim, thông tin cơ bản
+- Nút play trailer
+- Mô tả phim
+- Nút đặt vé
+- Đánh giá và bình luận
+
+Màn hình đặt vé:
+- Chọn rạp
+- Chọn ngày
+- Chọn suất chiếu
+- Chọn ghế (hiển thị sơ đồ rạp)
+- Chọn đồ ăn, nước uống (tùy chọn)
+- Xem lại và thanh toán
+
+Màn hình tài khoản:
+- Thông tin cá nhân
+- Lịch sử đặt vé
+- Ưu đãi thành viên
+- Cài đặt
+
+Màn hình tìm kiếm:
+- Thanh tìm kiếm
+- Bộ lọc (thể loại, rạp, ngày)
+- Kết quả tìm kiếm
+
+Để tạo các file XD, bạn có thể sử dụng các mô tả này làm hướng dẫn. Hãy nhớ áp dụng nguyên tắc thiết kế UI/UX như:
+- Sử dụng màu sắc và font chữ nhất quán
+- Tạo layout rõ ràng, dễ đọc
+- Thiết kế responsive cho web
+- Tối ưu hóa cho tương tác cảm ứng trên mobile
+- Sử dụng các biểu tượng trực quan
+
+Bạn có muốn tôi giải thích thêm về bất kỳ phần nào của các giao diện này không?
+
+
+
+
+Tôi hiểu rằng bạn muốn một ứng dụng Flutter cho khách hàng của rạp chiếu phim, với thiết kế nhất quán, rõ ràng, và tối ưu cho di động. Dưới đây là một ví dụ cơ bản về cách bạn có thể bắt đầu với màn hình chính của ứng dụng:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(CinemaApp());
+
+class CinemaApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cinema App',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        fontFamily: 'Roboto',
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          headline2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
+          bodyText1: TextStyle(fontSize: 16.0),
+        ),
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeContent(),
+    Text('Search Page'),
+    Text('Booking Page'),
+    Text('Account Page'),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cinema App'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              // Handle notification action
+            },
+          ),
+        ],
+      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Booking',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Account',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          MovieSlider(),
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              'Now Showing',
+              style: Theme.of(context).textTheme.headline2,
+            ),
+          ),
+          MovieGrid(),
+        ],
+      ),
+    );
+  }
+}
+
+class MovieSlider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      child: PageView(
+        children: <Widget>[
+          MovieSliderItem(image: 'assets/movie1.jpg', title: 'Movie 1'),
+          MovieSliderItem(image: 'assets/movie2.jpg', title: 'Movie 2'),
+          MovieSliderItem(image: 'assets/movie3.jpg', title: 'Movie 3'),
+        ],
+      ),
+    );
+  }
+}
+
+class MovieSliderItem extends StatelessWidget {
+  final String image;
+  final String title;
+
+  const MovieSliderItem({Key? key, required this.image, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Image.asset(image, fit: BoxFit.cover),
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          left: 20,
+          child: Text(
+            title,
+            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class MovieGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.all(16),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 3,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+      ),
+      itemCount: 4,
+      itemBuilder: (context, index) {
+        return MovieGridItem(title: 'Movie ${index + 1}');
+      },
+    );
+  }
+}
+
+class MovieGridItem extends StatelessWidget {
+  final String title;
+
+  const MovieGridItem({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to movie details
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: AssetImage('assets/movie_poster.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 8),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.bodyText1,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+Mã này tạo ra một ứng dụng Flutter với:
+
+1. Một theme nhất quán với màu sắc và font chữ được định nghĩa.
+2. Bottom navigation bar với 4 tab: Home, Search, Booking, và Account.
+3. Màn hình chính có một slider cho phim nổi bật và một lưới các phim đang chiếu.
+4. Các widget được tổ chức thành các class riêng biệt để dễ quản lý và mở rộng.
+5. Responsive design sử dụng GridView và các widget linh hoạt.
+6. Các icon trực quan trong bottom navigation bar.
+
+Để hoàn thiện ứng dụng, bạn cần:
+
+1. Thêm các màn hình cho Search, Booking, và Account.
+2. Implement chức năng navigation giữa các màn hình.
+3. Tích hợp với backend API để lấy dữ liệu thực.
+4. Thêm các chức năng như đặt vé, xem chi tiết phim, etc.
+5. Tối ưu hóa performance và thêm các animation để tăng trải nghiệm người dùng.
+6. Thêm xử lý lỗi và loading states.
+7. Implement state management (có thể sử dụng Provider, Bloc, hoặc GetX).
+
+Bạn có muốn tôi giải thích thêm về bất kỳ phần nào của code hoặc cung cấp ví dụ cho các màn hình khác không?
