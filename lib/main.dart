@@ -1,4 +1,4 @@
-import 'package:cinema_app/ui/test/customer_test_page.dart';
+import 'package:cinema_app/ui/test/employees_test_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CustomerTestPage(),
+      home: const EmployeesTestPage(),
     );
   }
 }

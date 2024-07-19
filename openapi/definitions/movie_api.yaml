@@ -833,9 +833,6 @@ components:
           type: string
           format: password
           description: Customer's password (should be encrypted)
-        avatar:
-          type: string
-          description: URL of the customer's avatar
         membershipStatus:
           type: string
           enum:
@@ -862,9 +859,6 @@ components:
           type: string
           format: password
           description: Customer's password (should be encrypted)
-        avatar:
-          type: string
-          description: URL of the customer's avatar
         membershipStatus:
           type: string
           enum:
@@ -901,6 +895,7 @@ components:
         employeeId:
           type: integer
           description: Unique identifier for the employee
+          nullable: true
         name:
           type: string
           description: Employee's full name

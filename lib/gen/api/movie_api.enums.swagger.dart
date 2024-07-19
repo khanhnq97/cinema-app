@@ -5,10 +5,12 @@ enum CustomerRequestMembershipStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
 
-  @JsonValue('Basic')
-  basic('Basic'),
-  @JsonValue('Premium')
-  premium('Premium');
+  @JsonValue('Gold')
+  gold('Gold'),
+  @JsonValue('Silver')
+  silver('Silver'),
+  @JsonValue('Bronze')
+  bronze('Bronze');
 
   final String? value;
 
@@ -19,10 +21,12 @@ enum CustomerResponseMembershipStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
 
-  @JsonValue('Basic')
-  basic('Basic'),
-  @JsonValue('Premium')
-  premium('Premium');
+  @JsonValue('Gold')
+  gold('Gold'),
+  @JsonValue('Silver')
+  silver('Silver'),
+  @JsonValue('Bronze')
+  bronze('Bronze');
 
   final String? value;
 
